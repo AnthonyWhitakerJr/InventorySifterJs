@@ -1,0 +1,25 @@
+9ad9dd6e-ccce-47f9-a3ab-241746538d1d;Wine, table, Chardonnay;Beverages;2018-04-16
+e02c39e0-6694-429e-a9e8-037e99b76ccd;Yogurt, flavored, cup;Refrigerated Foods;2018-03-15
+6bf77935-f67d-460c-b1d6-8032b834e27e;Potatoes, gold (Yukon);Produce;2018-04-19
+596816d8-8bf3-44d8-ae64-ae098faf2b84;Salami, sliced;Refrigerated Foods;2018-02-22
+e62d5b23-c123-4d22-affe-db134991e6f2;Onions, yellow;Produce;2018-02-04
+0b5c55c3-acf8-4441-9d6e-14b14dc2b7f8;Margarine/Spread;Refrigerated Foods;2018-07-22
+a0f13ec3-b3a8-4c60-957f-f00f86152ca7;Corn Flakes, regular;Bakery, Breakfast, Cereal;2018-02-11
+f0566cc8-beb4-4843-b6a9-5a249d0a9dd8;Hot Dog Buns;Bakery, Breakfast, Cereal;2017-11-14
+40c26c8f-0475-4757-833b-6af052713256;Mushrooms, whole;Produce;2018-08-06
+a3039084-2123-48a7-af8a-d89265bc2e3c;Ground Beef, frozen;Frozen Foods;2018-02-15
+7eb0e66a-0478-483d-95c8-d1917661d77d;Fish, Mahi Mahi, frozen;Frozen Foods;2017-11-17
+4b8f7d77-da10-4e10-84e1-3f4a3ef3cc88;Sour Cream;Refrigerated Foods;2018-08-03
+d21d64e3-4ea3-4223-97fc-e14a398cd768;Ribs, Spare Back (pork, unseasoned);Refrigerated Foods;2018-01-17
+91666438-0468-415b-a37c-3e32a92c4178;Yogurt, plain;Refrigerated Foods;2017-12-22
+b0ab2fc1-bc94-4b8c-8e46-c760b7fa339a;Sugar, white;Canned & Packaged Foods;2018-04-21
+3e9f7dd2-43f1-4992-8874-8ff5f3641189;Beer, bottle, pilsener, import;Beverages;2018-07-12
+bfafe2a6-3685-47cf-ba48-16493cbb44b5;Tuna, chunky, in water;Canned & Packaged Foods;2017-09-02
+05d32234-ca1c-4250-ae58-1266a157bfaa;Coconut Milk;Canned & Packaged Foods;2017-11-27
+71ac3b98-0d84-49aa-a278-346a2c4b3d56;Beef Stew Meat;Refrigerated Foods;2017-11-28
+42a18a1f-7207-43b9-b616-da61e6b20ce8;Cheese, shredded, Mozarella;Refrigerated Foods;2017-10-31
+e303abdd-3bcf-48b4-a2fa-e7c4543fd4cd;Rice, regular;Canned & Packaged Foods;2017-12-08
+e6095bb4-79fa-4f2d-b88f-f8b9b6b39193;Cold Cuts, ham or chicken;Refrigerated Foods;2018-06-02
+e792660c-eafa-40b8-a003-d053dacd6453;Spaghetti Sauce;Canned & Packaged Foods;2018-07-24
+dda1ec16-ed42-49c8-a40d-693a3cb2215a;Cocoa Rice Cereal;Bakery, Breakfast, Cereal;2017-08-24
+8cedbbcb-cf88-481c-9a4a-eb97780ad657;Pasta, Spaghetti;Canned & Packaged Foods;2017-09-18

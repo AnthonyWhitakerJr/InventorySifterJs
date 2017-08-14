@@ -1,0 +1,25 @@
+6af00794-fcdd-4847-b41a-2a2259b6bb5d;Fruit, frozen;Frozen Foods;2018-04-03
+6a6614b0-2c02-4bc9-8b72-e39ae4d06ef5;Cold Cuts, turkey variety;Refrigerated Foods;2018-06-04
+156ffec0-8929-48a4-8e7f-d966dc70c8d5;Preserves;Canned & Packaged Foods;2018-01-29
+24ef6d86-8557-45bd-895a-806c1841b11d;Apples, Red/Golden Delicious, bag;Produce;2018-06-23
+d924c527-80fc-46f5-bad2-86ec870c1b9d;Pizza, frozen (simple);Frozen Foods;2018-01-29
+6a995d3d-c107-4fe8-a1f3-daa1b43ff443;Yoghurt, Dannon (etc.);Refrigerated Foods;2018-04-17
+479f5ecd-92a2-4a45-9f1e-444ae42137b4;Soup, organic;Canned & Packaged Foods;2018-04-21
+6ddbe3d8-cfa6-43e0-8997-7d8d5230376f;Honey;Canned & Packaged Foods;2017-11-20
+06acf3b5-8abf-4575-a937-51828af823c9;Mustard, dijon;Canned & Packaged Foods;2018-06-10
+dd228fb1-9340-48fc-b76d-b3c498e49c37;Apple Sauce;Canned & Packaged Foods;2018-09-24
+9a0f1db1-4db5-4155-9e67-0421aaf8d0ad;Paper Towles;Miscellaneous Kitchen Items;2018-06-25
+0b5c809a-bd3a-4fa4-ac6d-f2795bddddf4;Veggies, frozen;Frozen Foods;2018-03-29
+9052cdd5-fa96-487c-9bbf-fc7c2c79bdbc;Cream Cheese;Refrigerated Foods;2017-10-11
+bd469e62-4519-4f4c-a319-76aaa97adb2c;Pork Tenderloin, small;Refrigerated Foods;2018-09-03
+14a4450e-0f53-4390-bf8b-0103dcface50;Fish, Tilapia, frozen;Frozen Foods;2018-09-06
+0e233c55-2a70-4de5-b86d-64af59d0a899;Ice Cream, premium;Frozen Foods;2018-04-06
+a679520e-97ab-4724-9d5f-fec534a10972;Mandarin Oranges, canned;Canned & Packaged Foods;2018-02-11
+2847df93-a8ac-43b9-b040-c152a0ae9ae4;Tomato Soup, regular;Canned & Packaged Foods;2018-08-01
+7e30d718-ea3e-4e1f-be30-cfd54d8b5217;Corn Flakes, sugar frosted;Bakery, Breakfast, Cereal;2018-01-14
+80f2bb90-5742-48a2-8a6d-1383e4045843;Oil, Olive, extra virgin;Canned & Packaged Foods;2018-09-01
+7cf712e2-7ae5-407c-ad24-aa2f0b516511;Baguette/French Bread;Bakery, Breakfast, Cereal;2017-10-23
+971a538b-bb35-4787-a6bc-adbd8d7d689d;Wine, table, White Zinfandel;Beverages;2018-10-06
+94ca5b1e-2389-425b-8b6e-fa40ebc819cd;Soda, bottle;Beverages;2018-04-19
+35e2e3ca-1270-4569-aa59-c75210c421a2;Pretzels;Canned & Packaged Foods;2018-03-24
+fb3561d0-5465-4639-afb2-bb7fc43db13b;Cereal, Müsli style;Bakery, Breakfast, Cereal;2018-02-02

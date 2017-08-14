@@ -1,0 +1,25 @@
+43e41e8a-54c6-4cfe-b638-d782a6ee8773;Soda, can (Coke product);Beverages;2018-10-23
+2ccbd156-e376-46f1-9afe-76a3f32cb61e;Milk, organic;Beverages;2018-10-21
+6e41ea09-f71d-41e2-abc4-2819ee9ab8f1;Ham, half;Refrigerated Foods;2019-01-20
+c859feeb-30cf-474f-ae42-3eba1b1d34ee;Pasta, Penne Rigate;Canned & Packaged Foods;2018-10-23
+aeed7f53-1432-40dc-ab64-bc0671c73a23;Fish, Flounder, frozen;Frozen Foods;2018-11-07
+0c1985b6-7a56-450e-a83a-06aee6cfb1fd;Ketchup;Canned & Packaged Foods;2018-09-16
+7c0f6471-bf4d-4abb-86a2-1ae433b86596;Yogurt, Fage, w/ flavor;Refrigerated Foods;2019-01-03
+d4b358d8-51ec-47e2-b48a-9129a244bce3;Aluminum Foil;Miscellaneous Kitchen Items;2018-11-28
+461591d7-de56-448d-b96c-a0ca78e929e3;Syrup, breakfast;Canned & Packaged Foods;2018-12-02
+f1289ec1-d15c-4e0f-b6af-e0aebbe3ab20;Bread Crumbs;Canned & Packaged Foods;2018-11-18
+4389c1a0-cfa5-42df-8764-67ff922d3b5f;Oil, Olive, 100% pure;Canned & Packaged Foods;2018-08-28
+256fecb7-841f-4f6a-8caf-e040a3c454f7;Yogurt, greek style, plain;Refrigerated Foods;2018-09-27
+6eaf0d78-326e-4dec-9cd5-911b2ee2b561;Mustard, yellow;Canned & Packaged Foods;2019-01-17
+5ccac5cd-1857-4ab0-b1bf-f0db9b35cb92;Ground Beef (chuck), fresh;Refrigerated Foods;2018-09-12
+6db26948-2804-4dab-806a-06b68693d721;Apple Juice;Beverages;2018-10-16
+70de8887-1692-4eef-86aa-d7cf710b1912;Potatoes, red;Produce;2018-05-28
+d48f1ef0-02f7-4e6d-9787-7aea983d6f7c;Oranges;Produce;2018-05-19
+62220440-2d1d-4dfc-ae4a-f8796e3646bf;Eggs, cage free;Refrigerated Foods;2018-08-17
+612a9026-81a0-4e6d-8bd9-6a5f663800ec;Pepper, black, ground;Canned & Packaged Foods;2019-01-28
+7319c6d5-a199-4a20-aec0-164b1390e53c;Tomatoes;Produce;2018-02-14
+04170131-69a2-4a51-a669-052d359c1532;Cottage Cheese;Refrigerated Foods;2018-10-12
+300d5989-8184-4ba8-806f-30844507ddf8;Pancetta, diced;Refrigerated Foods;2018-05-04
+cec2991f-e2c1-4bed-9a64-a6e7953aa2be;Chicken Nuggets, frozen;Frozen Foods;2018-12-25
+3fb18718-4160-4d9c-b611-40fe8f3c9c54;Cheese, Boursin;Refrigerated Foods;2018-11-18
+e90ca716-4062-47ed-ab32-b7b1090c53d9;Ribs, Baby Back (pork, unseasoned);Refrigerated Foods;2018-11-15
