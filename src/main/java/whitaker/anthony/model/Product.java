@@ -1,10 +1,16 @@
 package whitaker.anthony.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.Locale;
 
+@Document
 public class Product {
 
   public static final Comparator<Product> BY_CATEGORY = Comparator.comparing(Product::getCategory);
@@ -13,17 +19,19 @@ public class Product {
   public static final Comparator<Product> BY_NUMBER = Comparator.comparing(Product::getNumber);
 
   /** Product category. */
+  @Indexed
   private final String category;
-
   /** Product expiration date. */
+  @Indexed
   private final LocalDate expirationDate;
-
   /** Product name. */
+  @Indexed
   private final String name;
-
   /** Unique generated product number. */
+  @Indexed(unique = true)
   private final String number;
-
+  @Id
+  private String id;
 
   /**
    * Constructs a Product based on given values.
@@ -34,6 +42,7 @@ public class Product {
    * @param expirationDate Product expiration date.
    * @throws IllegalArgumentException If any parameters are {@code null}.
    */
+  @PersistenceConstructor
   public Product(String number, String name, String category, LocalDate expirationDate) {
     if(number == null || name == null || category == null || expirationDate == null)
       throw new IllegalArgumentException("Parameters to Product constructor cannot be null.");
