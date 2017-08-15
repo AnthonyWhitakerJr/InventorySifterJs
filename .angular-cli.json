@@ -9,7 +9,14 @@
       "outDir": "src/main/resources/static",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        "android-chrome-96x96.png",
+        "apple-touch-icon.png",
+        "browserconfig.xml",
+        "favicon-16x16.png",
+        "favicon-32x32.png",
+        "manifest.json",
+        "safari-pinned-tab.svg"
       ],
       "index": "index.html",
       "main": "main.ts",
