@@ -63,3 +63,6 @@ yarn-error.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Generated files
+/src/main/resources/static/
