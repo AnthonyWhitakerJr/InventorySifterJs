@@ -27,8 +27,14 @@ public enum Category {
 		this.text = name;
 	}
 
-	public static Category forText(String name) {
-		return byText.get(name);
+	/**
+	 * Returns Category associated with given String, or null if given string is not associated with a Category.
+	 *
+	 * @param text Text associated with a Category.
+	 * @return Category associated with given String, or null if given string is not associated with a Category.
+	 */
+	public static Category forText(String text) {
+		return byText.get(text);
 	}
 
 	@Override
