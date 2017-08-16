@@ -1,6 +1,6 @@
 # InventorySifter
 
-[![Build Badge](https://travis-ci.org/AnthonyWhitakerJr/InventorySifter.svg?branch=master)](https://travis-ci.org/AnthonyWhitakerJr/InventorySifter) [![codecov](https://codecov.io/gh/AnthonyWhitakerJr/InventorySifter/branch/master/graph/badge.svg)](https://codecov.io/gh/AnthonyWhitakerJr/InventorySifter)
+[![Build Badge](https://travis-ci.org/AnthonyWhitakerJr/InventorySifterJs.svg?branch=master)](https://travis-ci.org/AnthonyWhitakerJr/InventorySifterJs) [![codecov](https://codecov.io/gh/AnthonyWhitakerJr/InventorySifterJs/branch/master/graph/badge.svg)](https://codecov.io/gh/AnthonyWhitakerJr/InventorySifterJs)
 
 Aids in the complex process of sifting high volumes of inventory.
 
