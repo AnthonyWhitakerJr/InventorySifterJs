@@ -1,34 +1,43 @@
 package whitaker.anthony.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 @Document
-public class Category implements Comparable<Category> {
+public enum Category {
+	BEVERAGES("Beverages"),
+	CANNED_PACKAGED("Canned & Packaged Foods"),
+	BAKERY_BREAKFAST_CEREAL("Bakery, Breakfast, Cereal"),
+	FROZEN("Frozen Foods"),
+	MISCELLANEOUS_KITCHEN("Miscellaneous Kitchen Items"),
+	PRODUCE("Produce"),
+	REFRIGERATED("Refrigerated Foods");
 
-  @Indexed(unique = true)
-  private final String name;
-  @Id
-  private String id;
+	private static final Map<String, Category> byText = new HashMap<>();
+	private final String text;
 
-  @PersistenceConstructor
-  public Category(String name) {
-    this.name = name;
-  }
+	static {
+		Arrays.stream(Category.values()).forEach(category -> byText.put(category.text, category));
+	}
 
-  @Override
-  public int compareTo(Category o) {
-    return this.name.compareTo(o.name);
-  }
+	Category(String name) {
+		this.text = name;
+	}
 
-  @Override
-  public String toString() {
-    return name;
-  }
+	public static Category forText(String name) {
+		return byText.get(name);
+	}
 
-  public String getName() {
-    return name;
-  }
+	@Override
+	public String toString() {
+		return text;
+	}
+
+	public String getText() {
+		return text;
+	}
 }
+

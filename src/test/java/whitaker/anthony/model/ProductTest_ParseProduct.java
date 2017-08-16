@@ -44,7 +44,7 @@ public class ProductTest_ParseProduct {
     Product product = Product.parseProduct(productString, DELIMITER, DEFAULT_EXPIRATION_DATE_FORMAT, DEFAULT_EXPIRATION_DATE_LOCALE);
     assertEquals(expectedNumber, product.getNumber());
     assertEquals(expectedName, product.getName());
-    assertEquals(expectedCategory, product.getCategory());
+    assertEquals(expectedCategory, product.getCategory().getText());
     assertEquals(expectedExpirationDate, product.getExpirationDate());
   }
 }

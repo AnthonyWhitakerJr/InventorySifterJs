@@ -5,11 +5,11 @@ package whitaker.anthony.model;
  * Number will be auto-generated and expiration date is entered at product creation.
  */
 public class ProductCandidate {
-  private final String category;
+	private final Category category;
   private final String name;
 
-  public ProductCandidate(String category, String name) {
-    this.category = category;
+	public ProductCandidate(Category category, String name) {
+		this.category = category;
     this.name = name;
   }
 
@@ -39,8 +39,8 @@ public class ProductCandidate {
       '}';
   }
 
-  public String getCategory() {
-    return category;
+	public Category getCategory() {
+		return category;
   }
 
   public String getName() {

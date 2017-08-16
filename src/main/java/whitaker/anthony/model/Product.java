@@ -20,7 +20,7 @@ public class Product {
 
   /** Product category. */
   @Indexed
-  private final String category;
+  private final Category category;
   /** Product expiration date. */
   @Indexed
   private final LocalDate expirationDate;
@@ -43,7 +43,7 @@ public class Product {
    * @throws IllegalArgumentException If any parameters are {@code null}.
    */
   @PersistenceConstructor
-  public Product(String number, String name, String category, LocalDate expirationDate) {
+  public Product(String number, String name, Category category, LocalDate expirationDate) {
     if(number == null || name == null || category == null || expirationDate == null)
       throw new IllegalArgumentException("Parameters to Product constructor cannot be null.");
     this.number = number;
@@ -76,9 +76,9 @@ public class Product {
 
     String number = productParts[0];
     String name = productParts[1];
-    String category = productParts[2];
-    String expirationDateString = productParts[3];
-    return new Product(number, name, category, parseStringToDate(expirationDateString, expirationDateFormat, expirationDateLocale));
+	  String categoryString = productParts[2];
+	  String expirationDateString = productParts[3];
+	  return new Product(number, name, Category.forText(categoryString), parseStringToDate(expirationDateString, expirationDateFormat, expirationDateLocale));
   }
 
   /**
@@ -132,8 +132,8 @@ public class Product {
   }
 
 
-  public String getCategory() {
-    return category;
+	public Category getCategory() {
+		return category;
   }
 
   public LocalDate getExpirationDate() {

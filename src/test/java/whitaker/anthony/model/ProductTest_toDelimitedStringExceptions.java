@@ -42,7 +42,7 @@ public class ProductTest_toDelimitedStringExceptions {
 
   @Before
   public void setup() {
-    product = new Product("08f7751c-c495-469d-b4ca-5b1f118c91a7", "Lemons", "Produce", LocalDate.of(2017, 10, 8));
+    product = new Product("08f7751c-c495-469d-b4ca-5b1f118c91a7", "Lemons", Category.PRODUCE, LocalDate.of(2017, 10, 8));
   }
 
 

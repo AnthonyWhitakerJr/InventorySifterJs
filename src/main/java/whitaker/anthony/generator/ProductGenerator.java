@@ -1,5 +1,6 @@
 package whitaker.anthony.generator;
 
+import whitaker.anthony.model.Category;
 import whitaker.anthony.model.Product;
 import whitaker.anthony.model.ProductCandidate;
 
@@ -21,20 +22,17 @@ import static java.time.temporal.ChronoUnit.DAYS;
  */
 public class ProductGenerator {
 
-  private ArrayList<ProductCandidate> productCandidates;
+	private ArrayList<ProductCandidate> productCandidates = new ArrayList<>();
 
   /**
    * Constructs a ProductGenerator.
    *
    * @param productCandidates List of potential products. If null, defaults to empty list.
    */
-  public ProductGenerator(ArrayList<ProductCandidate> productCandidates) {
-    if(productCandidates == null) {
-      this.productCandidates = new ArrayList<>();
-    }
-    else {
-      this.productCandidates = productCandidates;
-    }
+  public ProductGenerator(Collection<ProductCandidate> productCandidates) {
+	  if(productCandidates != null) {
+		  this.productCandidates.addAll(productCandidates);
+	  }
   }
 
   /**
@@ -101,7 +99,7 @@ public class ProductGenerator {
       .map(strings -> {
         if(strings.length != 2)
           throw new IllegalArgumentException("Parsing with delimiter \"" + delimiter + "\" produced wrong amount of fields.");
-        return new ProductCandidate(strings[0], strings[1]);
+	      return new ProductCandidate(Category.forText(strings[0]), strings[1]);
       })
       .collect(Collectors.toCollection(ArrayList::new));
   }
@@ -122,8 +120,8 @@ public class ProductGenerator {
 
     String number = generateNumber();
     ProductCandidate productCandidate = productCandidates.remove(getRandomIndex(productCandidates));
-    String category = productCandidate.getCategory();
-    String name = productCandidate.getName();
+	  Category category = productCandidate.getCategory();
+	  String name = productCandidate.getName();
     LocalDate expirationDate = getRandomDate(startDate, endDate);
 
     return new Product(number, name, category, expirationDate);

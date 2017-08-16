@@ -3,6 +3,7 @@ package whitaker.anthony;
 import org.junit.Ignore;
 import org.junit.Test;
 import whitaker.anthony.generator.DataGenerator;
+import whitaker.anthony.model.Category;
 import whitaker.anthony.model.Product;
 
 import java.nio.file.Files;
@@ -77,10 +78,10 @@ public class InventorySifterTest {
     products.stream().sorted(Product.BY_EXPIRATION_DATE).forEach(System.out::println);
 
     // Delete all products of a specific category.
-    products = products.stream().filter(product -> !"Canned & Packaged Foods".equals(product.getCategory())).collect(Collectors.toList());
+    products = products.stream().filter(product -> !Category.CANNED_PACKAGED.equals(product.getCategory())).collect(Collectors.toList());
     assertNotEquals(75, products.size());
     assertTrue(75 > products.size());
-    assertTrue(products.stream().filter(product -> "Canned & Packaged Foods".equals(product.getCategory())).collect(Collectors.toList()).isEmpty());
+    assertTrue(products.stream().filter(product -> Category.CANNED_PACKAGED.equals(product.getCategory())).collect(Collectors.toList()).isEmpty());
 
     // Return products sorted by product number.
     System.out.println("\n\n--------------------------------PRODUCTS BY PRODUCT NUMBER--------------------------------");
