@@ -10,21 +10,21 @@ import whitaker.anthony.repository.ProductRepository;
 @SpringBootApplication
 public class InventorySifterApplication implements CommandLineRunner {
 
-  @Autowired
-  private ProductRepository productRepository;
+	@Autowired
+	private ProductRepository productRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(InventorySifterApplication.class, args);
 	}
 
-  @Override
-  public void run(String... strings) throws Exception {
+	@Override
+	public void run(String... strings) throws Exception {
 //    productRepository.save(new Product("12346567", "Apple, Fuji", "Produce", ProductGenerator.getRandomDate(LocalDate.now(), LocalDate.now().plusMonths(2))));
 
-    System.out.println("Products found with findAll():");
-    System.out.println("-------------------------------");
-    for(Product product : productRepository.findAll()) {
-      System.out.println(product);
-    }
-  }
+		System.out.println("Products found with findAll():");
+		System.out.println("-------------------------------");
+		for(Product product : productRepository.findAll()) {
+			System.out.println(product);
+		}
+	}
 }

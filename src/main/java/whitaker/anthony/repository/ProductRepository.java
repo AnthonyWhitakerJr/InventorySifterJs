@@ -7,11 +7,11 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface ProductRepository extends MongoRepository<Product, String> {
-  List<Product> findByCategory(String category);
+	List<Product> findByCategory(String category);
 
-  List<Product> findByExpirationDate(LocalDate expirationDate);
+	List<Product> findByExpirationDate(LocalDate expirationDate);
 
-  List<Product> findByName(String name);
+	List<Product> findByName(String name);
 
-  Product findByNumber(String number);
+	Product findByNumber(String number);
 }
