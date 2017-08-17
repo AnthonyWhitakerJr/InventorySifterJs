@@ -13,18 +13,17 @@ import java.util.List;
 import java.util.Locale;
 
 import static org.junit.Assert.*;
-import static whitaker.anthony.generator.DataGenerator.DEFAULT_EXPIRATION_DATE_FORMAT;
-import static whitaker.anthony.generator.DataGenerator.DEFAULT_EXPIRATION_DATE_LOCALE;
+import static whitaker.anthony.generator.DataGenerator.*;
 
 public class DataGeneratorTest {
 
-	public static final String DELIMITER = ";";
+	private static final String PRODUCT_CANDIDATE_FILENAME = "src/main/resources/ProductCandidates.txt";
 
 	private DataGenerator generator;
 
 	@Before
 	public void setup() {
-		generator = new DataGenerator("src/main/resources/ProductCandidates.txt", DELIMITER, null, null);
+		generator = new DataGenerator(PRODUCT_CANDIDATE_FILENAME, DEFAULT_DELIMITER, null, null);
 	}
 
 	@Test
@@ -72,10 +71,10 @@ public class DataGeneratorTest {
 		int numberOfProductsInSet = 25;
 		Collection<Product> dataset = generator.generateDataSet(numberOfProductsInSet, LocalDate.now(), LocalDate.now().plusYears(1));
 		assertEquals(numberOfProductsInSet, dataset.size());
-		generator.writeDataSetToFile(dataset, "DELETE_ME.txt", DELIMITER);
+		generator.writeDataSetToFile(dataset, "DELETE_ME.txt", DEFAULT_DELIMITER);
 		assertTrue("File not created correctly.", Files.isRegularFile(Paths.get("DELETE_ME.txt")));
 
-		List<Product> products = DataGenerator.parseProductsFromFile("DELETE_ME.txt", DELIMITER, DEFAULT_EXPIRATION_DATE_FORMAT, DEFAULT_EXPIRATION_DATE_LOCALE);
+		List<Product> products = DataGenerator.parseProductsFromFile("DELETE_ME.txt", DEFAULT_DELIMITER, DEFAULT_EXPIRATION_DATE_FORMAT, DEFAULT_EXPIRATION_DATE_LOCALE);
 		assertEquals(25, products.size());
 		assertFalse(products.contains(null));
 

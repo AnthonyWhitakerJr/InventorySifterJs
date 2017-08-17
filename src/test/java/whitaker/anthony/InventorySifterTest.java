@@ -15,9 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.junit.Assert.*;
-import static whitaker.anthony.generator.DataGenerator.DEFAULT_EXPIRATION_DATE_FORMAT;
-import static whitaker.anthony.generator.DataGenerator.DEFAULT_EXPIRATION_DATE_LOCALE;
-import static whitaker.anthony.generator.DataGeneratorTest.DELIMITER;
+import static whitaker.anthony.generator.DataGenerator.*;
 
 public class InventorySifterTest {
 
@@ -28,24 +26,24 @@ public class InventorySifterTest {
 	@Test
 	@Ignore("MANUAL RUN ONLY. USE TO GENERATE DATA FOR TESTING.")
 	public void generateTestData() {
-		DataGenerator generator = new DataGenerator("src/main/resources/ProductCandidates.txt", DELIMITER, null, null);
+		DataGenerator generator = new DataGenerator("src/main/resources/ProductCandidates.txt", DEFAULT_DELIMITER, null, null);
 
 		int numberOfProductsInSet = 25;
 		Collection<Product> dataset = generator.generateDataSet(numberOfProductsInSet, LocalDate.now(), LocalDate.now().plusYears(1));
 		assertEquals(numberOfProductsInSet, dataset.size());
-		generator.writeDataSetToFile(dataset, FILENAME_DATASET_1, DELIMITER);
+		generator.writeDataSetToFile(dataset, FILENAME_DATASET_1, DEFAULT_DELIMITER);
 		assertTrue("File not created correctly.", Files.isRegularFile(Paths.get(FILENAME_DATASET_1)));
 
 		numberOfProductsInSet = 25; // This line intentionally duplicated to allow for easy set modification.
 		dataset = generator.generateDataSet(numberOfProductsInSet, LocalDate.now().plusMonths(2), LocalDate.now().plusMonths(14));
 		assertEquals(numberOfProductsInSet, dataset.size());
-		generator.writeDataSetToFile(dataset, FILENAME_DATASET_2, DELIMITER);
+		generator.writeDataSetToFile(dataset, FILENAME_DATASET_2, DEFAULT_DELIMITER);
 		assertTrue("File not created correctly.", Files.isRegularFile(Paths.get(FILENAME_DATASET_2)));
 
 		numberOfProductsInSet = 25;
 		dataset = generator.generateDataSet(numberOfProductsInSet, LocalDate.now().plusMonths(6), LocalDate.now().plusMonths(18));
 		assertEquals(numberOfProductsInSet, dataset.size());
-		generator.writeDataSetToFile(dataset, FILENAME_DATASET_3, DELIMITER);
+		generator.writeDataSetToFile(dataset, FILENAME_DATASET_3, DEFAULT_DELIMITER);
 		assertTrue("File not created correctly.", Files.isRegularFile(Paths.get(FILENAME_DATASET_3)));
 	}
 
@@ -54,7 +52,7 @@ public class InventorySifterTest {
 		List<Product> products = new ArrayList<>();
 
 		// Add first data set.
-		products.addAll(DataGenerator.parseProductsFromFile(FILENAME_DATASET_1, DELIMITER, DEFAULT_EXPIRATION_DATE_FORMAT, DEFAULT_EXPIRATION_DATE_LOCALE));
+		products.addAll(DataGenerator.parseProductsFromFile(FILENAME_DATASET_1, DEFAULT_DELIMITER, DEFAULT_EXPIRATION_DATE_FORMAT, DEFAULT_EXPIRATION_DATE_LOCALE));
 		assertEquals(25, products.size());
 
 		// Return products sorted by name.
@@ -62,7 +60,7 @@ public class InventorySifterTest {
 		products.stream().sorted(Product.BY_NAME).forEach(System.out::println);
 
 		// Add the next data set.
-		products.addAll(DataGenerator.parseProductsFromFile(FILENAME_DATASET_2, DELIMITER, DEFAULT_EXPIRATION_DATE_FORMAT, DEFAULT_EXPIRATION_DATE_LOCALE));
+		products.addAll(DataGenerator.parseProductsFromFile(FILENAME_DATASET_2, DEFAULT_DELIMITER, DEFAULT_EXPIRATION_DATE_FORMAT, DEFAULT_EXPIRATION_DATE_LOCALE));
 		assertEquals(50, products.size());
 
 		// Return products sorted by category.
@@ -70,7 +68,7 @@ public class InventorySifterTest {
 		products.stream().sorted(Product.BY_CATEGORY).forEach(System.out::println);
 
 		// Add the next data set.
-		products.addAll(DataGenerator.parseProductsFromFile(FILENAME_DATASET_3, DELIMITER, DEFAULT_EXPIRATION_DATE_FORMAT, DEFAULT_EXPIRATION_DATE_LOCALE));
+		products.addAll(DataGenerator.parseProductsFromFile(FILENAME_DATASET_3, DEFAULT_DELIMITER, DEFAULT_EXPIRATION_DATE_FORMAT, DEFAULT_EXPIRATION_DATE_LOCALE));
 		assertEquals(75, products.size());
 
 		// Return products sorted by expiration date.
