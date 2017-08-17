@@ -1,12 +1,9 @@
 package whitaker.anthony.model;
 
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-@Document
 public enum Category {
 	BEVERAGES("Beverages"),
 	CANNED_PACKAGED("Canned & Packaged Foods"),
