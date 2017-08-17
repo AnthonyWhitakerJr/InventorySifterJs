@@ -13,10 +13,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+/**
+ * DataGenerator is used to create sets of Products for use in the application.
+ * Also responsible for read/write operations for Products stored in files.
+ */
 public class DataGenerator {
+	public static final String DEFAULT_DELIMITER = ";";
 	public static final String DEFAULT_EXPIRATION_DATE_FORMAT = "yyyy-MM-dd";
 	public static final Locale DEFAULT_EXPIRATION_DATE_LOCALE = Locale.US;
 
@@ -41,12 +45,12 @@ public class DataGenerator {
 	}
 
 	/**
-	 * Parse stream containing product candidates into an ArrayList.
+	 * Parse stream containing product candidates into a List.
 	 * Stream should contain lines with a product category & name separated by a delimiter.
 	 *
 	 * @param stream    Stream to parse.
 	 * @param delimiter Delimiter between category & name in stream.
-	 * @return Arraylist of product candidates based on file contents.
+	 * @return List of product candidates based on file contents.
 	 * @throws IllegalArgumentException If unable to parse file properly with given delimiter.
 	 */
 	public static List<Product> parseProducts(Stream<String> stream, String delimiter, String expirationDateFormat, Locale expirationDateLocale) {
@@ -55,12 +59,12 @@ public class DataGenerator {
 	}
 
 	/**
-	 * Parse file containing product candidates into an ArrayList.
+	 * Parse file containing product candidates into a List.
 	 * File should contain lines with a product category & name separated by a delimiter.
 	 *
 	 * @param filename  Name of file to parse
 	 * @param delimiter Delimiter between category & name in file.
-	 * @return Arraylist of product candidates based on file contents.
+	 * @return List of product candidates based on file contents.
 	 * @throws IllegalArgumentException If unable to parse file properly with given delimiter.
 	 */
 	public static List<Product> parseProductsFromFile(String filename, String delimiter, String expirationDateFormat, Locale expirationDateLocale) {
@@ -80,9 +84,7 @@ public class DataGenerator {
 	 * @return A dataset of the given size by generating random products based on the product previously set product candidates, random expiration dates within given bounds and random product numbers.
 	 */
 	public Collection<Product> generateDataSet(int size, LocalDate expirationDateMin, LocalDate expirationDateMax) {
-		if(size < 1 || size > productGenerator.getProductCandidates().size())
-			throw new IllegalArgumentException("Invalid size.");
-		return IntStream.range(0, size).mapToObj(i -> productGenerator.createRandomProduct(expirationDateMin, expirationDateMax)).collect(Collectors.toList());
+		return productGenerator.createRandomProducts(size, expirationDateMin, expirationDateMax);
 	}
 
 	/**
@@ -102,6 +104,7 @@ public class DataGenerator {
 		}
 	}
 
+
 	public String getExpirationDateFormat() {
 		return expirationDateFormat;
 	}
@@ -114,8 +117,7 @@ public class DataGenerator {
 	public void setExpirationDateFormat(String expirationDateFormat) {
 		if(expirationDateFormat == null) {
 			this.expirationDateFormat = DEFAULT_EXPIRATION_DATE_FORMAT;
-		}
-		else {
+		} else {
 			this.expirationDateFormat = expirationDateFormat;
 		}
 	}
@@ -132,8 +134,7 @@ public class DataGenerator {
 	public void setExpirationDateLocale(Locale expirationDateLocale) {
 		if(expirationDateLocale == null) {
 			this.expirationDateLocale = DEFAULT_EXPIRATION_DATE_LOCALE;
-		}
-		else {
+		} else {
 			this.expirationDateLocale = expirationDateLocale;
 		}
 	}

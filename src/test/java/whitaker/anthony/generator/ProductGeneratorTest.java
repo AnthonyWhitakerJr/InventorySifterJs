@@ -43,9 +43,9 @@ public class ProductGeneratorTest {
 
 	@Test
 	public void testGenerateNumber_UniqueResults() {
-		String firstNumber = ProductGenerator.generateNumber();
-		String secondNumber = ProductGenerator.generateNumber();
-		String thirdNumber = ProductGenerator.generateNumber();
+		String firstNumber = ProductGenerator.generateProductNumber();
+		String secondNumber = ProductGenerator.generateProductNumber();
+		String thirdNumber = ProductGenerator.generateProductNumber();
 
 		assertNotEquals(firstNumber, secondNumber);
 		assertNotEquals(firstNumber, thirdNumber);
@@ -130,8 +130,7 @@ public class ProductGeneratorTest {
 	@Test
 	public void testProductGenerator_SanityCheck() {
 		ProductGenerator generator = new ProductGenerator(null);
-		assertNotNull(generator.getProductCandidates());
-		assertTrue(generator.getProductCandidates().isEmpty());
+		assertEquals(0, generator.getNumberOfRemainingCandidates());
 	}
 
 }

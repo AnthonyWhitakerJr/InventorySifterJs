@@ -13,6 +13,7 @@ import java.util.Collection;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static java.time.temporal.ChronoUnit.DAYS;
@@ -36,11 +37,51 @@ public class ProductGenerator {
 	}
 
 	/**
+	 * Creates a product with a random product number, random expiration date and random set of category & name from available product candidates.
+	 *
+	 * @param productCandidates List of potential products from which to derive the random product.
+	 *                          <b>Warning: This list will undergo destructive modification.</b>
+	 * @param expirationDateMin Lower bound of random expiration date.
+	 * @param expirationDateMax Upper bound of random expiration date.
+	 * @return A product with a random product number, random expiration date and random set of category & name from available product candidates.
+	 * @throws IllegalArgumentException If start date does not precede end date.
+	 * @throws IllegalStateException    If there are no product candidates available.
+	 */
+	public static Product createRandomProduct(ArrayList<ProductCandidate> productCandidates, LocalDate expirationDateMin, LocalDate expirationDateMax) {
+		if(productCandidates.isEmpty())
+			throw new IllegalStateException("No product candidates available for product creation.");
+
+		String number = generateProductNumber();
+		ProductCandidate productCandidate = productCandidates.remove(getRandomIndex(productCandidates));
+		Category category = productCandidate.getCategory();
+		String name = productCandidate.getName();
+		LocalDate expirationDate = getRandomDate(expirationDateMin, expirationDateMax);
+
+		return new Product(number, name, category, expirationDate);
+	}
+
+	/**
+	 * Generates a dataset of the given size by generating random products based on the product previously set product candidates, random expiration dates within given bounds and random product numbers.
+	 *
+	 * @param productCandidates List of potential products from which to derive the random product.
+	 *                          <b>Warning: This list will undergo destructive modification.</b>
+	 * @param size              Number of products to create. May not exceed size of product candidate list.
+	 * @param expirationDateMin Lower bound for expiration date.
+	 * @param expirationDateMax Upper bound for expiration date.
+	 * @return A dataset of the given size by generating random products based on the product previously set product candidates, random expiration dates within given bounds and random product numbers.
+	 */
+	public static Collection<Product> createRandomProducts(ArrayList<ProductCandidate> productCandidates, int size, LocalDate expirationDateMin, LocalDate expirationDateMax) {
+		if(size < 0 || size > productCandidates.size())
+			throw new IllegalArgumentException("Invalid size.");
+		return IntStream.range(0, size).mapToObj(i -> createRandomProduct(productCandidates, expirationDateMin, expirationDateMax)).collect(Collectors.toList());
+	}
+
+	/**
 	 * Generates a unique number for use in a new Product's number field.
 	 *
 	 * @return A unique number.
 	 */
-	public static String generateNumber() {
+	static String generateProductNumber() {
 		return UUID.randomUUID().toString();
 	}
 
@@ -52,7 +93,7 @@ public class ProductGenerator {
 	 * @return A random LocalDate between start date and end date.
 	 * @throws IllegalArgumentException If start date does not precede end date.
 	 */
-	public static LocalDate getRandomDate(LocalDate startDate, LocalDate endDate) {
+	static LocalDate getRandomDate(LocalDate startDate, LocalDate endDate) {
 		if(!startDate.isBefore(endDate)) throw new IllegalArgumentException("Start date must precede end date.");
 		long daysBetween = DAYS.between(startDate, endDate);
 		return startDate.plusDays(ThreadLocalRandom.current().nextLong(daysBetween + 1));
@@ -64,7 +105,7 @@ public class ProductGenerator {
 	 * @param collection collection to derive index from.
 	 * @return A random index within the bounds of the given collection's size.
 	 */
-	public static int getRandomIndex(Collection collection) {
+	static int getRandomIndex(Collection collection) {
 		return ThreadLocalRandom.current().nextInt(collection.size());
 	}
 
@@ -94,7 +135,7 @@ public class ProductGenerator {
 	 * @return Arraylist of product candidates based on file contents.
 	 * @throws IllegalArgumentException If unable to parse file properly with given delimiter.
 	 */
-	public static ArrayList<ProductCandidate> parseProductCandidates(Stream<String> stream, String delimiter) {
+	static ArrayList<ProductCandidate> parseProductCandidates(Stream<String> stream, String delimiter) {
 		return stream.map(s -> s.split(delimiter))
 				.map(strings -> {
 					if(strings.length != 2)
@@ -104,31 +145,31 @@ public class ProductGenerator {
 				.collect(Collectors.toCollection(ArrayList::new));
 	}
 
-
 	/**
 	 * Creates a product with a random product number, random expiration date and random set of category & name from available product candidates.
 	 *
-	 * @param startDate Lower bound of random expiration date.
-	 * @param endDate   Upper bound of random expiration date.
+	 * @param expirationDateMin Lower bound of random expiration date.
+	 * @param expirationDateMax Upper bound of random expiration date.
 	 * @return A product with a random product number, random expiration date and random set of category & name from available product candidates.
 	 * @throws IllegalArgumentException If start date does not precede end date.
 	 * @throws IllegalStateException    If there are no product candidates available.
 	 */
-	public Product createRandomProduct(LocalDate startDate, LocalDate endDate) {
-		if(productCandidates.isEmpty())
-			throw new IllegalStateException("No product candidates available for product creation.");
-
-		String number = generateNumber();
-		ProductCandidate productCandidate = productCandidates.remove(getRandomIndex(productCandidates));
-		Category category = productCandidate.getCategory();
-		String name = productCandidate.getName();
-		LocalDate expirationDate = getRandomDate(startDate, endDate);
-
-		return new Product(number, name, category, expirationDate);
+	public Product createRandomProduct(LocalDate expirationDateMin, LocalDate expirationDateMax) {
+		return ProductGenerator.createRandomProduct(productCandidates, expirationDateMin, expirationDateMax);
 	}
 
-
-	public ArrayList<ProductCandidate> getProductCandidates() {
-		return productCandidates;
+	/**
+	 * Generates a dataset of the given size by generating random products based on the product previously set product candidates, random expiration dates within given bounds and random product numbers.
+	 *
+	 * @param size              Number of products to create. May not exceed number of remaining product candidates.
+	 * @param expirationDateMin Lower bound for expiration date.
+	 * @param expirationDateMax Upper bound for expiration date.
+	 * @return A dataset of the given size by generating random products based on the product previously set product candidates, random expiration dates within given bounds and random product numbers.
+	 */
+	public Collection<Product> createRandomProducts(int size, LocalDate expirationDateMin, LocalDate expirationDateMax) {
+		return createRandomProducts(productCandidates, size, expirationDateMin, expirationDateMax);
 	}
+
+	public int getNumberOfRemainingCandidates() { return productCandidates.size(); }
+
 }
