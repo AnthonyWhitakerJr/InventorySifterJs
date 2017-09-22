@@ -49,7 +49,7 @@ public class DataGeneratorTest {
 	@Test
 	public void testGenerateDataSet_InvalidSize1() {
 		try {
-			generator.generateDataSet(0, LocalDate.now(), LocalDate.now().plusYears(1));
+			generator.generateDataSet(-1, LocalDate.now(), LocalDate.now().plusYears(1));
 			fail();
 		} catch(IllegalArgumentException e) {
 			assertEquals("Invalid size.", e.getMessage());
