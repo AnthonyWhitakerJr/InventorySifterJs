@@ -9,9 +9,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
-import static whitaker.anthony.generator.DataGenerator.DEFAULT_EXPIRATION_DATE_FORMAT;
-import static whitaker.anthony.generator.DataGenerator.DEFAULT_EXPIRATION_DATE_LOCALE;
-import static whitaker.anthony.generator.DataGeneratorTest.DELIMITER;
+import static whitaker.anthony.generator.DataGenerator.*;
 
 @RunWith(value = Parameterized.class)
 public class ProductTest_toDelimitedString {
@@ -35,6 +33,6 @@ public class ProductTest_toDelimitedString {
 
 	@Test
 	public void testToDelimitedString() {
-		assertEquals(expected, product.toDelimitedString(DELIMITER, DEFAULT_EXPIRATION_DATE_FORMAT, DEFAULT_EXPIRATION_DATE_LOCALE));
+		assertEquals(expected, product.toDelimitedString(DEFAULT_DELIMITER, DEFAULT_EXPIRATION_DATE_FORMAT, DEFAULT_EXPIRATION_DATE_LOCALE));
 	}
 }
